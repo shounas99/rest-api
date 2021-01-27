@@ -1,5 +1,8 @@
 'use strict'
 
+const Url = require('url-parse')
+const CLEARDB_DATABASE_URL = new Url(Env.get('CLEARDB_DATABASE_URL'))
+
 /** @type {import('@adonisjs/framework/src/Env')} */
 const Env = use('Env')
 
@@ -51,14 +54,16 @@ module.exports = {
   mysql: {
     client: 'mysql',
     connection: {
-      host: Env.get('DB_HOST', 'localhost'),
+      host: Env.get('DB_HOST', 'us-cdbr-east-03.cleardb.com'),
       port: Env.get('DB_PORT', ''),
-      user: Env.get('DB_USER', 'root'),
-      password: Env.get('DB_PASSWORD', ''),
-      database: Env.get('DB_DATABASE', 'adonis')
+      user: Env.get('DB_USER', 'b80cf5692e9f27'),
+      password: Env.get('DB_PASSWORD', 'b010b413'),
+      database: Env.get('DB_DATABASE', 'heroku_e8c310b38e670cb')
     },
     debug: Env.get('DB_DEBUG', false)
   },
+
+  //mysql://:/
 
   /*
   |--------------------------------------------------------------------------
